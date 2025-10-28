@@ -1,5 +1,7 @@
+import {beforeAll, afterAll, describe, test, expect } from "@jest/globals"
 import Mensagem from "../../src/models/mensagem.js";
 import sequelize from "../../src/config/databaseFactory.js";
+import { validate } from "uuid";
 
 // antes da execução
 beforeAll(async () => {
@@ -23,9 +25,15 @@ describe("modelo: mensagem", () => {
       const dadosDaMensagem = {
         usuario: "usuario",
         conteudo: "olá mundo",
+        gostei: 5
       };
       const mensagem = Mensagem.build(dadosDaMensagem);
       const mensagemSalva = await mensagem.save();
+      expect(mensagemSalva.id).toBeDefined();
+      expect(validate(mensagemSalva.id)).toBeTruthy();
+      expect(mensagemSalva.usuario).toBe(dadosDaMensagem.usuario);
+      expect(mensagemSalva.conteudo).toBe(dadosDaMensagem.conteudo);
+      expect(mensagemSalva.gostei).toBe(5);
     });
   });
 });
