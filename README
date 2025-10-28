@@ -1,0 +1,7 @@
+Bibliotecas:
+
+npm i -D jest
+
+npm i sequelize
+
+npm i -D sequelize-cli
