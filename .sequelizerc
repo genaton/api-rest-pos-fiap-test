@@ -1,4 +1,4 @@
-reguire("@bable/register")
+reguire("@babel/register")
 
 const path = require("path")
 

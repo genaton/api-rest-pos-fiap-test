@@ -7,3 +7,5 @@ npm i sequelize
 npm i -D sequelize-cli
 
 comando npx sequelize (permite interargir via terminal com a biblioteca sequelize)
+
+npm i -D @babel/core
