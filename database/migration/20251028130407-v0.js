@@ -1,25 +1,26 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('mensagems', {
+    await queryInterface.createTable('mensagens', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.DataTypes.UUID,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id: {
-        type: Sequelize.UUID
+        defaultValue: Sequelize.DataTypes.UUID,
       },
       usuario: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING(20),
+        allowNull:false
       },
       conteudo: {
-        type: Sequelize.STRING
+        type: Sequelize.DataTypes.STRING(150),
+        allowNull:false
       },
       gostei: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DataTypes.INTEGER, defaultValue: 0
       },
       created_at: {
         allowNull: false,
@@ -32,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('mensagems');
+    await queryInterface.dropTable('mensagens');
   }
 };
