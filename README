@@ -9,3 +9,20 @@ npm i -D sequelize-cli
 comando npx sequelize (permite interargir via terminal com a biblioteca sequelize)
 
 npm i -D @babel/core
+
+## requisitos
+
+### Mensagem 
+
+Requisito Funcional:
+
+-- Deve permitir registra, buscar, alterar mensagens publicadas pelo usuário
+
+Reguisito Tecnico:
+
+Modelo Mensagem:
+
+- id - UUID
+- usuario - string(10, 25),  eh obrigatorio
+- conteudo - string(1, 150), eh obrigatorio
+- gostei - integer
