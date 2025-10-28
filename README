@@ -23,6 +23,6 @@ Reguisito Tecnico:
 Modelo Mensagem:
 
 - id - UUID
-- usuario - string(10, 25),  eh obrigatorio
+- usuario - string(7, 25),  eh obrigatorio
 - conteudo - string(1, 150), eh obrigatorio
 - gostei - integer
