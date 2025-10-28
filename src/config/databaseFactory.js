@@ -49,6 +49,6 @@ class DatabaseFactory{
     }
 }
 
-const databaseFactory = new DatabaseFactory();
+const sequelize = new DatabaseFactory();
 
-export default databaseFatory;
+export default sequelize;
