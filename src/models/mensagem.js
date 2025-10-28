@@ -15,8 +15,7 @@ class Mensagem extends Model {
       modelName: 'mensagem',
       underscored: true,
     });
-    return mensagem;
-
+   
 
   }
 
