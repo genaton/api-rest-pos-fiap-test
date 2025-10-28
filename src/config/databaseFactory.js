@@ -10,9 +10,9 @@ class DatabaseFactory {
     }
     _initializeSequelize() {
         const config =
-        process.env.NODE_ENV === 'test' ?   {
+        process.env.NODE_ENV === "test" ?   {
 
-                option: {
+                options: {
                     dialect: "sqlite",
                     storage: ":memory:",
                     logging: true
@@ -84,6 +84,7 @@ class DatabaseFactory {
     }
 }
 
-const sequelize = new DatabaseFactory();
+const databaseFactory = new DatabaseFactory();
+const sequelize = databaseFactory._initializeSequelize()
 
 export default sequelize;
