@@ -6,5 +6,5 @@ module.exports = {
     "config": path.resolve("src","config", "config.js"),
     "models-path": path.resolve("src","models"),
     "seeders-path": path.resolve("database","seeders"),
-    "migration-path": path.resolve("database","migration"),
+    "migrations-path": path.resolve("database","migration"),
 }
