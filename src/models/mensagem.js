@@ -21,3 +21,5 @@ class Mensagem extends Model {
 
 
 };
+
+export default Mensagem;
