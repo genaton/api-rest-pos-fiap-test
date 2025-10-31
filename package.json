@@ -7,7 +7,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test":  "jest tests/unit",
+    "test:integration": "jest tests/integration",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
     "db:migrate":"sequelize db:migrate",

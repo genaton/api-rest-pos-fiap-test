@@ -20,6 +20,8 @@ npx sequelize db:drop (caso a base já esteja criada rode este comando, e rode o
 npm run db:migrate (para criar a base no postgress)
 npm run db:seed (para popular a tabela )
 npm run db:seed:undo (rollback na tabela )
+npm run test  ("jest tests/unit",)
+npm run test:integration (   "test:integration": "jest tests/integration")
 ## requisitos
 
 ### Mensagem 
