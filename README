@@ -12,6 +12,7 @@ npm i -D @babel/core
 npm i -D sqlite3
 npm i -D dotenv 
 npm i -D uuid@9
+npm i pg
 
 comando: docker compose up -d db
 

@@ -37,4 +37,33 @@ describe("model: mensagem", () => {
       expect(mensagem.gostei).toBe(0);
     });
   });
+
+  describe("contexto: buscar", () => {
+    test("deve permitir buscar uma mensagem por id", async() => {
+
+        const msgData = {
+            usuario:"usuario_00",
+            conteudo: "olá mundo",
+        };
+        const mensagem = await models.mensagem.create(msgData);
+        const msgEncontrada = await models.mensagem.findByPk(mensagem.id);
+        
+    })
+    
+})
+describe("contexto: remover", () => {
+    test("deve permitir remover uma mensagem existente", async() => {
+        
+        const msgData = {
+            usuario:"usuario_00",
+            conteudo: "olá mundo",
+        };
+        const mensagem = await models.mensagem.create(msgData);
+        await models.mensagem.destroy({where: {id: mensagem.id}});
+        
+        
+    });
+    // const msgEncontrada = await models.mensagem.findByPk(mensagem.id);
+    
+  })
 });
