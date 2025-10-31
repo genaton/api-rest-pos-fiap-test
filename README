@@ -17,6 +17,8 @@ npm i pg
 comando: docker compose up -d db
 npx sequelize db:create (para criar nova base )
 npx sequelize db:drop (caso a base já esteja criada rode este comando, e rode o create novamente)
+npm run db:migrate (para criar a base no postgress)
+npm run db:seed (para popular a tabela )
 ## requisitos
 
 ### Mensagem 
