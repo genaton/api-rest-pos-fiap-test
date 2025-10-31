@@ -11,7 +11,10 @@ comando npx sequelize (permite interargir via terminal com a biblioteca sequeliz
 npm i -D @babel/core
 npm i -D sqlite3
 npm i -D dotenv 
-  npm i -D uuid@9
+npm i -D uuid@9
+
+comando: docker compose up -d db
+
 ## requisitos
 
 ### Mensagem 

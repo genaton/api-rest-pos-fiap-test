@@ -26,7 +26,7 @@ class DatabaseFactory {
                         dialect: process.env.DB_DIALECT,
                         host: process.env.DB_HOST,
                         port: process.env.DB_PORT,
-                        sync: process.env.DB_SYNC,
+                        sync: process.env.DB_SYNC  === "true" || false,
                         logging: process.env.DB_LOGGING === "true" || false,
 
                     },

@@ -1,6 +1,6 @@
 import {beforeAll, afterAll, describe, test, expect } from "@jest/globals"
-import Mensagem from "../../src/models/mensagem.js";
-import sequelize from "../../src/config/databaseFactory.js";
+import Mensagem from "../../../src/models/mensagem.js";
+import sequelize from "../../../src/config/databaseFactory.js";
 import { validate } from "uuid";
 
 // antes da execução
