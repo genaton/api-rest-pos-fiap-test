@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:create": "sequelize db:create",
-    "db:drop": "sequelize db:drop"
+    "db:drop": "sequelize db:drop",
+    "db:migrate":"sequelize db:migrate"
 
   },
   "devDependencies": {
