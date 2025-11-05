@@ -7,14 +7,13 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test":  "jest tests/unit",
+    "test": "jest tests/unit",
     "test:integration": "jest tests/integration",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
-    "db:migrate":"sequelize db:migrate",
-    "db:seed":"sequelize db:seed:all",
-    "db:seed:undo":"sequelize db:seed:undo"
-
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:seed:undo": "sequelize db:seed:undo"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
@@ -28,6 +27,7 @@
     "uuid": "^9.0.1"
   },
   "dependencies": {
+    "express": "^5.1.0",
     "pg": "^8.16.3",
     "sequelize": "^6.37.7"
   }
