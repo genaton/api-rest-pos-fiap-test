@@ -1,4 +1,4 @@
-import MensagemService from "../services/mensagemService";
+import MensagemService from "../services/mensagemService.js";
 
 /**
  * @param {MensagemService} service
@@ -21,6 +21,30 @@ class MensagemController{
         }
     }
     async buscar(req, res){
+        try {
+            const mensagem = this.service.buscarPorId(req.param.id);
+            return res.status(200).json(mensagem);
+        } catch (error) {
+            return res.status(400).json({
+                code: 2001,
+                error: error.message,
+            })
+        }
+    }
+
+    async atualizar(req, res){
+        try {
+            const mensagem = this.service.buscarPorId(req.param.id);
+            return res.status(200).json(mensagem);
+        } catch (error) {
+            return res.status(400).json({
+                code: 2001,
+                error: error.message,
+            })
+        }
+    }
+
+    async eliminar(req, res){
         try {
             const mensagem = this.service.buscarPorId(req.param.id);
             return res.status(200).json(mensagem);

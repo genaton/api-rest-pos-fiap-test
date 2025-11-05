@@ -1,5 +1,5 @@
-import Mensagem from "./mensagem"
-import sequelize from "../config/databaseFactory"
+import Mensagem from "./mensagem.js"
+import sequelize from "../config/databaseFactory.js"
 
 const models = {
     mensagem: Mensagem.init(sequelize),

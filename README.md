@@ -23,6 +23,7 @@ npm run db:seed:undo (rollback na tabela )
 npm run test  ("jest tests/unit",)
 npm run test:integration (   "test:integration": "jest tests/integration")
 npm i express
+npm i supertest 
 ## requisitos
 
 ### Mensagem 

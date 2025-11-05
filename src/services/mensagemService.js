@@ -1,4 +1,4 @@
-import MensagemModel from "../models/mensagem";
+import MensagemModel from "../models/mensagem.js";
 
 class MensagemService {
   /**
