@@ -19,8 +19,12 @@ class MensagemService {
     }
   }
   async buscarPorId(id) {
+    console.log("Buscando mensagem com id:", id);
+
     try {
-      const mensagem = this.model.findByPk(id);
+      const mensagem = await this.model.findByPk(id);
+      console.log("Resultado da busca:", mensagem);
+
       if (!mensagem) {
         throw new Error("Mensagem não econtrada");
       }

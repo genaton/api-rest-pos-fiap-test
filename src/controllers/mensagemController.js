@@ -14,6 +14,7 @@ class MensagemController{
             const mensagem = await this.service.registrar(req.body);
             res.status(201).json(mensagem)
         } catch (error) {
+            console.error("Erro ao registrar: ",error);
             res.status(500).json({             
                 error: error.message
             })
@@ -22,10 +23,10 @@ class MensagemController{
     }
     async buscar(req, res){
         try {
-            const mensagem = this.service.buscarPorId(req.param.id);
+            const mensagem = await this.service.buscarPorId(req.params.id);
             return res.status(200).json(mensagem);
         } catch (error) {
-            return res.status(400).json({
+            return res.status(404).json({
                 code: 2001,
                 error: error.message,
             })
@@ -34,7 +35,7 @@ class MensagemController{
 
     async atualizar(req, res){
         try {
-            const mensagem = this.service.buscarPorId(req.param.id);
+            const mensagem = this.service.buscarPorId(req.params.id);
             return res.status(200).json(mensagem);
         } catch (error) {
             return res.status(400).json({
@@ -46,7 +47,7 @@ class MensagemController{
 
     async eliminar(req, res){
         try {
-            const mensagem = this.service.buscarPorId(req.param.id);
+            const mensagem = this.service.buscarPorId(req.params.id);
             return res.status(200).json(mensagem);
         } catch (error) {
             return res.status(400).json({
