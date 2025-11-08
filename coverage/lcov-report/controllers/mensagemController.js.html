@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>6/18</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/17</span>
+                <span class='fraction'>6/18</span>
             </div>
         
             
@@ -122,7 +122,10 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,6 +142,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,6 +164,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,6 +203,7 @@ class MensagemController{
             const mensagem = await this.service.registrar(req.body);
             res.status(201).json(mensagem)
         } catch (error) {
+            console.error("Erro ao registrar: ",error);
             res.status(500).json({             
                 error: error.message
             })
@@ -205,10 +212,10 @@ class MensagemController{
     }
 <span class="fstat-no" title="function not covered" >    as</span>ync buscar(req, res){
 <span class="cstat-no" title="statement not covered" >        try {</span>
-            const mensagem = <span class="cstat-no" title="statement not covered" >this.service.buscarPorId(req.param.id);</span>
+            const mensagem = <span class="cstat-no" title="statement not covered" >await this.service.buscarPorId(req.params.id);</span>
 <span class="cstat-no" title="statement not covered" >            return res.status(200).json(mensagem);</span>
         } catch (error) {
-<span class="cstat-no" title="statement not covered" >            return res.status(400).json({</span>
+<span class="cstat-no" title="statement not covered" >            return res.status(404).json({</span>
                 code: 2001,
                 error: error.message,
             })
@@ -217,8 +224,10 @@ class MensagemController{
 &nbsp;
 <span class="fstat-no" title="function not covered" >    as</span>ync atualizar(req, res){
 <span class="cstat-no" title="statement not covered" >        try {</span>
-            const mensagem = <span class="cstat-no" title="statement not covered" >this.service.buscarPorId(req.param.id);</span>
-<span class="cstat-no" title="statement not covered" >            return res.status(200).json(mensagem);</span>
+            const mensagem = <span class="cstat-no" title="statement not covered" >await this.service.atualizar(req.params.id, req.body);</span>
+<span class="cstat-no" title="statement not covered" >            return res.status(200).json({"mensagem": "Mensagem atualizada",</span>
+                dados: mensagem
+            });
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            return res.status(400).json({</span>
                 code: 2001,
@@ -229,8 +238,8 @@ class MensagemController{
 &nbsp;
 <span class="fstat-no" title="function not covered" >    as</span>ync eliminar(req, res){
 <span class="cstat-no" title="statement not covered" >        try {</span>
-            const mensagem = <span class="cstat-no" title="statement not covered" >this.service.buscarPorId(req.param.id);</span>
-<span class="cstat-no" title="statement not covered" >            return res.status(200).json(mensagem);</span>
+            const resultado = <span class="cstat-no" title="statement not covered" >await this.service.deletar(req.params.id);</span>
+<span class="cstat-no" title="statement not covered" >            return res.status(200).send(resultado);</span>
         } catch (error) {
 <span class="cstat-no" title="statement not covered" >            return res.status(400).json({</span>
                 code: 2001,
@@ -247,7 +256,7 @@ export default MensagemController;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-05T22:42:53.284Z
+                at 2025-11-08T21:55:03.665Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -33,28 +33,37 @@ class MensagemService {
       throw new Error(`erro ao obter a mensagem: ${id} - ${error.mensagem}`);
     }
   }
+
+  async listar() {
+    try {
+      const mensagens = await this.model.findAll();
+      return mensagens;
+    } catch (error) {
+      throw new Error(`não foi possível obter mensagens : ${error.mensagem}`);
+    }
+  }
   async atualizar(id, atualizaMensagem) {
     try {
       const mensagem = await this.model.findByPk(id);
       if (!mensagem) {
         throw new Error(`Mensagem com ID ${id} não encontrada.`);
       }
-      
+
       await mensagem.update(atualizaMensagem);
       return mensagem.toJSON();
     } catch (error) {
       throw new Error(`erro ao alterar mensagem: ${error.message}`);
     }
   }
-   async deletar(id) {
+  async deletar(id) {
     try {
       const mensagem = await this.model.findByPk(id);
       if (!mensagem) {
         throw new Error(`Mensagem com ID ${id} não encontrada.`);
       }
-      
+
       await mensagem.destroy();
-      return {mensagem: 'Mensagem deletada com sucesso'};
+      return { mensagem: "Mensagem deletada com sucesso" };
     } catch (error) {
       throw new Error(`erro ao deletar mensagem: ${error.message}`);
     }
