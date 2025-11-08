@@ -57,5 +57,19 @@ describe("controller: mensagem", () => {
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject(expected);
     }, 15000);
+    test("deve permitir alterar mensagem via requisição por id", async () => {
+      const mensagens = await models.mensagem.findAll();
+      const msgData = mensagens[0].toJSON();
+      const atualizaMensagem = {
+        usuario: msgData.usuario,
+        conteudo: "Conteúdo atualizado pelo teste",
+        gostei: msgData.gostei + 1,
+      };
+      const response = await request(app)
+        .put(`/mensagens/${msgData.id}`)
+        .send(atualizaMensagem);
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject(atualizaMensagem);
+    }, 15000);
   });
 });

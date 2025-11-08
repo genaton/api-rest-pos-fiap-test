@@ -9,9 +9,9 @@ mensagemRouter.get("/:id", mensagemController.buscar.bind(mensagemController));
 
 mensagemRouter.post("/", mensagemController.registrar.bind(mensagemController));
 
-// mensagemRouter.put("/:id", mensagemController.atualizar.bind(mensagemController));
+mensagemRouter.put("/:id", mensagemController.atualizar.bind(mensagemController));
 
-// mensagemRouter.delete("/:id", mensagemController.eliminar.bind(mensagemController));
+mensagemRouter.delete("/:id", mensagemController.eliminar.bind(mensagemController));
 
 
 export default mensagemRouter;

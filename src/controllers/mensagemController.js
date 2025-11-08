@@ -35,8 +35,10 @@ class MensagemController{
 
     async atualizar(req, res){
         try {
-            const mensagem = this.service.buscarPorId(req.params.id);
-            return res.status(200).json(mensagem);
+            const mensagem = await this.service.atualizar(req.params.id, req.body);
+            return res.status(200).json({"mensagem": "Mensagem atualizada",
+                dados: mensagem
+            });
         } catch (error) {
             return res.status(400).json({
                 code: 2001,
@@ -47,8 +49,8 @@ class MensagemController{
 
     async eliminar(req, res){
         try {
-            const mensagem = this.service.buscarPorId(req.params.id);
-            return res.status(200).json(mensagem);
+            const resultado = await this.service.deletar(req.params.id);
+            return res.status(200).send(resultado);
         } catch (error) {
             return res.status(400).json({
                 code: 2001,
