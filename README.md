@@ -14,6 +14,7 @@ npm i -D dotenv
 npm i -D uuid@9
 npm i pg
  npm i -D nyc (para ter métricas mais precisas do que realmente foi coberto no código pelos testes)
+  npm i -D istanbul-merge (para criar um relatório único da cobertura feita pelos testes)
 
 comando: docker compose up -d db
 npx sequelize db:create (para criar nova base )
