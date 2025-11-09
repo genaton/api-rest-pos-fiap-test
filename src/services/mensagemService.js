@@ -30,7 +30,7 @@ class MensagemService {
       }
       return mensagem.toJSON();
     } catch (error) {
-      throw new Error(`erro ao obter a mensagem: ${id} - ${error.mensagem}`);
+      throw new Error(`erro ao obter a mensagem: ${id} - ${error.message}`);
     }
   }
 
@@ -39,7 +39,7 @@ class MensagemService {
       const mensagens = await this.model.findAll();
       return mensagens;
     } catch (error) {
-      throw new Error(`não foi possível obter mensagens : ${error.mensagem}`);
+      throw new Error("não foi possível obter mensagens : ${error.mensagem}"); // altere as aspas por "``"
     }
   }
   async atualizar(id, atualizaMensagem) {

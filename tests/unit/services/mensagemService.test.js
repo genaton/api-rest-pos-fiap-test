@@ -49,11 +49,29 @@ describe("context: listar", () => {
     const msgEncontradas = await mensagemService.listar();
     expect(msgEncontradas.length).toBe(2);
   });
+
+  test("deve permitir listar uma mensagem por ID", async () => {
+    mockListarMensagenPorId()
+    const msgEncontradas = await mensagemService.buscarPorId(MSG_ID);
+    expect(msgEncontradas.id).toBe(MSG_ID);
+  });
+   test("deve lançar o erro quando a mensagem por ID não existir", async () => {
+    mockMensagemNaoEncontrada()
+    await expect(mensagemService.buscarPorId(MSG_ID)).rejects.toThrow("Mensagem não econtrada");
+  });
+   
   test("deve permitir listar todas as mensagens mesmo que não existam", async () => {
     mockListarMensagensInexistentes()
     const msgEncontradas = await mensagemService.listar();
     expect(msgEncontradas.length).toBe(0);
   });
+  test("deve gerar exceção quando houver erro ao obter mensagens", async () =>{
+    Mensagem.findAll.mockRejectedValue(new Error("erro gerado pelo mock"));
+    await expect(mensagemService.listar()).rejects.toThrow("não foi possível obter mensagens : ${error.mensagem}");
+    
+  }
+  
+  )
 });
 //carrega os dados em memória
 function msgMock() {
@@ -83,3 +101,11 @@ function mockListarMensagens() {
 function mockListarMensagensInexistentes() {
   Mensagem.findAll.mockReturnValueOnce([]);
 }
+function mockListarMensagenPorId() {
+  Mensagem.findByPk = jest.fn().mockReturnValueOnce({toJSON: () => msgMock()})
+}
+function mockMensagemNaoEncontrada() {
+  Mensagem.findByPk = jest.fn().mockResolvedValueOnce(null);
+}
+
+

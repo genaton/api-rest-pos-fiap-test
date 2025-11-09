@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.12% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/32</span>
+                <span class='fraction'>18/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.12% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/32</span>
+                <span class='fraction'>18/32</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -157,27 +157,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,19 +229,19 @@ class MensagemService {
       throw new Error(`erro ao registrar mensagem: ${error.message}`);
     }
   }
-<span class="fstat-no" title="function not covered" >  as</span>ync buscarPorId(id) {
-<span class="cstat-no" title="statement not covered" >    console.log("Buscando mensagem com id:", id);</span>
+  async buscarPorId(id) {
+    console.log("Buscando mensagem com id:", id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const mensagem = <span class="cstat-no" title="statement not covered" >await this.model.findByPk(id);</span>
-<span class="cstat-no" title="statement not covered" >      console.log("Resultado da busca:", mensagem);</span>
+    try {
+      const mensagem = await this.model.findByPk(id);
+      console.log("Resultado da busca:", mensagem);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (!mensagem) {</span>
-<span class="cstat-no" title="statement not covered" >        throw new Error("Mensagem não econtrada");</span>
+      if (!mensagem) {
+        throw new Error("Mensagem não econtrada");
       }
-<span class="cstat-no" title="statement not covered" >      return mensagem.toJSON();</span>
+      return mensagem.toJSON();
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      throw new Error(`erro ao obter a mensagem: ${id} - ${error.mensagem}`);</span>
+      throw new Error(`erro ao obter a mensagem: ${id} - ${error.message}`);
     }
   }
 &nbsp;
@@ -250,7 +250,7 @@ class MensagemService {
       const mensagens = await this.model.findAll();
       return mensagens;
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      throw new Error(`não foi possível obter mensagens : ${error.mensagem}`);</span>
+      throw new Error("não foi possível obter mensagens : ${error.mensagem}"); // altere as aspas por "``"
     }
   }
 <span class="fstat-no" title="function not covered" >  as</span>ync atualizar(id, atualizaMensagem) {
@@ -289,7 +289,7 @@ export default MensagemService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-08T21:55:03.665Z
+                at 2025-11-09T18:19:21.157Z
             </div>
         <script src="../prettify.js"></script>
         <script>

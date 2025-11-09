@@ -7,8 +7,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest tests/unit",
-    "test:integration": "jest tests/integration",
+    "test": "jest tests/unit --coverage",
+    "test:integration": "jest tests/integration --coverage",
+    "test:system": "jest tests/system --coverage",
     "db:create": "sequelize db:create",
     "db:drop": "sequelize db:drop",
     "db:migrate": "sequelize db:migrate",
