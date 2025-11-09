@@ -9,6 +9,6 @@ module.exports = {
         "@babel/register"
     ],
     language: "pt",
-    dryRun: true
+    dryRun: false
   },
 };
