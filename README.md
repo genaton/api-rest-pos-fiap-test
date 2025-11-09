@@ -1,4 +1,5 @@
-Bibliotecas:
+# Bibliotecas:
+## TDD
 
 npm i -D jest
 
@@ -15,6 +16,8 @@ npm i express
 npm i supertest 
 npm i -D nyc (para ter métricas mais precisas do que realmente foi coberto no código pelos testes)
 npm i -D istanbul-merge (para criar um relatório único da cobertura feita pelos testes)
+## BDD
+npm i -D @cucumber/cucumber @babel/register
 
 comando: 
 docker compose up -d db
@@ -29,6 +32,7 @@ npm run test:integration (   "test:integration": "jest tests/integration")
 npm run test:system (   "test:system": "jest tests/system")
 npm run coverage:combine (combina o relatório de todos os testes)
 npm run coverage:export (renderiza o relatório de todos os testes em um html)
+npm run test:bdd (altere dryRun para true em cucumber.cjs para copiar e colar os passos em mensagme.step.json.)
 
 extensões:
 jest 
