@@ -13,6 +13,7 @@ npm i -D sqlite3
 npm i -D dotenv 
 npm i -D uuid@9
 npm i pg
+ npm i -D nyc (para ter métricas mais precisas do que realmente foi coberto no código pelos testes)
 
 comando: docker compose up -d db
 npx sequelize db:create (para criar nova base )
