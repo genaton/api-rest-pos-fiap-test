@@ -69,7 +69,7 @@ describe("controller: mensagem", () => {
         .put(`/mensagens/${msgData.id}`)
         .send(atualizaMensagem);
       expect(response.status).toBe(200);
-      expect(response.body).toMatchObject(atualizaMensagem);
+      expect(response.body.dados).toMatchObject(atualizaMensagem);
     }, 15000);
   });
 });

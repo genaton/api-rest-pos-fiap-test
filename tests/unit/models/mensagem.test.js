@@ -38,7 +38,84 @@ describe("modelo: mensagem", () => {
         expect(validate(mensagemSalva.id)).toBeTruthy();
         expect(mensagemSalva.usuario).toBe(dadosDaMensagem.usuario);
         expect(mensagemSalva.conteudo).toBe(dadosDaMensagem.conteudo);
+        expect(mensagemSalva.gostei).toBeDefined();
         expect(mensagemSalva.gostei).toBe(5);
+      });
+      test("não deve permitir registrar mensagem sem o campo usuario", async () => {
+        const dadosDaMensagem = {
+          conteudo: "olá mundo!",
+        };
+        const mensagem = Mensagem.build(dadosDaMensagem);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining("o campo usuário é obrigatório"),
+          })
+        );
+      });
+
+      test("não deve permitir registrar mensagem com o campo usuario vazio", async () => {
+        const dadosDaMensagem = {
+          usuario: "",
+          conteudo: "olá mundo!",
+        };
+        const mensagem = Mensagem.build(dadosDaMensagem);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining(
+              "o campo usuário deve ser preenchido"
+            ),
+          })
+        );
+      });
+      test("não deve permitir registrar mensagem com o campo usuario com mais de 10 caracteres", async () => {
+        const dadosDaMensagem = {
+          usuario: "usuario com mais de 20 caracteres",
+          conteudo: "olá mundo!",
+        };
+        const mensagem = Mensagem.build(dadosDaMensagem);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining(
+              "o campo usuário deve ter entre 8 e 20 caracteres"
+            ),
+          })
+        );
+      });
+      test("não deve permitir registrar mensagem com o campo usuario com menos de 7 caracteres", async () => {
+        const dadosDaMensagem = {
+          usuario: "user",
+          conteudo: "olá mundo!",
+        };
+        const mensagem = Mensagem.build(dadosDaMensagem);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining(
+              "o campo usuário deve ter entre 8 e 20 caracteres"
+            ),
+          })
+        );
+      });
+      test("não deve permitir registrar mensagem sem o campo conteúdo", async () => {
+        const mensagemData = { usuario: "UsuarioTeste" };
+
+        const mensagem = Mensagem.build(mensagemData);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining("o campo conteúdo é obrigatório"),
+          })
+        );
+      });
+      test("não deve permitir registrar mensagem com o campo conteúdo vazio", async () => {
+        const mensagemData = {
+          usuario: "usuario 1",
+          conteudo: "",
+        };
+        const mensagem = Mensagem.build(mensagemData);
+        await expect(mensagem.validate()).rejects.toThrow(
+          expect.objectContaining({
+            message: expect.stringContaining("o campo conteúdo deve ser preenchido")
+          })
+        )
       });
     });
   });
@@ -77,14 +154,7 @@ describe("modelo: mensagem", () => {
       expect(msgEncontradas.length).toBe(0);
     });
   });
-  describe("contexto: remover", () => {
-    test("deve permitir remover uma mensagem existente", async () => {
-      const msgData = {
-        usuario: "usuario_00",
-        conteudo: "olá mundo doido",
-      };
-    });
-  });
+  
   describe("contexto: remover", () => {
     test("deve permitir remover uma mensagem existente", async () => {
       const mensagemData = {

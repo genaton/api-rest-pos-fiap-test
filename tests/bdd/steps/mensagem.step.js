@@ -1,28 +1,37 @@
 import { Given, When, Then } from "@cucumber/cucumber";
+import app from "../../../src/server/server.js";
+import request from "supertest";
+import assert from "assert";
+
+let payload, response;
 
 Given("que eu tenha uma mensagem valida", function () {
-  // Write code here that turns the phrase above into concrete actions
-  return "pending";
+  payload = {
+    usuario: "usuario_0001",
+    conteudo: "olá mundo",
+  };
 });
 Given("que eu tenha uma mensagem sem o campo usuario", function () {
-  // Write code here that turns the phrase above into concrete actions
-  return "pending";
+  payload = {
+    conteudo: "olá mundo",
+  };
 });
 
-When("enviar a mensagem para cadastrar", function () {
-  // Write code here that turns the phrase above into concrete actions
-  return "pending";
+When("enviar a mensagem para cadastrar", async ()=> {
+   response = await request(app).post("/mensagens").send(payload) ;
+   console.log("response: ", response.status, response.body)
 });
+
 Then("a mensagem deve ser registrada com sucesso", function () {
-  // Write code here that turns the phrase above into concrete actions
-  return "pending";
+  assert.equal(response.status, 201);
 });
 Then("a mensagem não é cadastrada", function () {
-  // Write code here that turns the phrase above into concrete actions
-  return "pending";
+   assert.equal(response.status, 500);
 });
 
-  Then("deve apresentar erro indicando que o campo 'usuario' é obrigatório", function () {
-           // Write code here that turns the phrase above into concrete actions    
-           return 'pending';
-         });
+Then(
+  "deve apresentar erro indicando que o campo 'usuario' é obrigatório",
+  function () {
+    assert.ok(response.body.error.includes("o campo usuário é obrigatório"));
+  }
+);
