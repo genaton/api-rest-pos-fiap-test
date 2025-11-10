@@ -11,6 +11,7 @@
     "test:integration": "jest tests/integration --coverage --coverageDirectory=.coverage/integration",
     "test:system": "jest tests/system --coverage --coverageDirectory=.coverage/system",
     "test:bdd": "cucumber-js",
+    "test:bdd_lento": "cucumber-js --tags @lento",
     "coverage:combine": "istanbul-merge --out ./coverage/coverage.json .coverage/**//coverage-final.json",
     "coverage:export": "nyc report -t ./coverage --report-dir ./coverage --reporter=html",
     "db:create": "sequelize db:create",

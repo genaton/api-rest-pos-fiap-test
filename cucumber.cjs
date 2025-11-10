@@ -1,3 +1,5 @@
+const { format } = require("sequelize/lib/utils");
+
 module.exports = {
   default: {
     paths: ["tests/bdd/*.feature"],
@@ -9,6 +11,10 @@ module.exports = {
         "@babel/register"
     ],
     language: "pt",
-    dryRun: false
+    dryRun: false,
+    format:[
+      ["html", "cucumber-report.html"],
+      "progress-bar"
+    ]
   },
 };
