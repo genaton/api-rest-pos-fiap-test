@@ -1,0 +1,46 @@
+{
+    "uuid": "4d359263-f279-4e91-ab63-e057bd5cf5f8",
+    "name": "deve permitir listar todas as mensagens",
+    "status": "skipped",
+    "statusDetails": {},
+    "stage": "finished",
+    "steps": [],
+    "attachments": [],
+    "parameters": [],
+    "labels": [
+        {
+            "name": "language",
+            "value": "javascript"
+        },
+        {
+            "name": "framework",
+            "value": "jest"
+        },
+        {
+            "name": "package",
+            "value": "tests.unit.services.mensagemService.test.js"
+        },
+        {
+            "name": "host",
+            "value": "DESKTOP-89N9435"
+        },
+        {
+            "name": "thread",
+            "value": "2"
+        },
+        {
+            "name": "parentSuite",
+            "value": "context: listar"
+        }
+    ],
+    "links": [],
+    "start": 1762897067229,
+    "fullName": "tests/unit/services/mensagemService.test.js#context: listar deve permitir listar todas as mensagens",
+    "titlePath": [
+        "tests",
+        "unit",
+        "services",
+        "mensagemService.test.js",
+        "context: listar"
+    ]
+}
