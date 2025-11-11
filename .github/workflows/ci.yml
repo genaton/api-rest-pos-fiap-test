@@ -43,6 +43,9 @@ jobs:
     - name: preparar projeto
       run: npm install
 
+    - name: Reinstalar sqlite3 para ambiente Linux
+      run: npm rebuild sqlite3
+
     - name: Definir variaves de ambiente
       run: |
         echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
