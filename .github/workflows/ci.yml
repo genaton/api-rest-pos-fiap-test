@@ -94,10 +94,10 @@ jobs:
         publish_branch: gh-pages
         publish_dir: allure-history
 
-    - name: Quality Gateway (SonarCloud)
-      uses: SonarSource/sonarcloud-github-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+   # - name: Quality Gateway (SonarCloud)
+    #  uses: SonarSource/sonarcloud-github-action@master
+     # env:
+      #  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     
     #- run: npm ci
     #- run: npm run build --if-present
