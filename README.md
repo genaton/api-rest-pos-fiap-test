@@ -39,6 +39,9 @@ jest
 jest runner
 code metrics (sinaliza se os métodos estão muito complexos, com mais de 5 attributos ou passagens. )
 
+### Atenção
+Testes de integração e bdd com cucumber devem ser feitos com a aplicação rodando e com o banco de dados no ar. 
+
 ## requisitos
 
 ### Mensagem 
