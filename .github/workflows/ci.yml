@@ -65,10 +65,10 @@ jobs:
       run: npm test
     
     - name: teste - integração
-      run: npm test:integration
+      run: npm run test:integration
     
     - name: teste - sistema
-      run: npm test:system
+      run: npm run test:system
 
     - name: Load test report history
       uses: actions/checkout@v3
