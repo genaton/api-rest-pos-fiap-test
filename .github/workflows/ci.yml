@@ -42,7 +42,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: preparar projeto
-    - run: npm install
+      run: npm install
 
     - name: Definir variaves de ambiente
       run: |
@@ -54,13 +54,13 @@ jobs:
         echo "DB_PORT=${{ secrets.DB_PORT }}" >> $GITHUB_ENV
     
     - name: teste - unitario
-    - run: npm test
+      run: npm test
     
     - name: teste - integração
-    - run: npm test:integration
+      run: npm test:integration
     
     - name: teste - sistema
-    - run: npm test:system
+      run: npm test:system
 
     - name: Load test report history
       uses: actions/checkout@v3
