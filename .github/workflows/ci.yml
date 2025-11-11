@@ -73,7 +73,7 @@ jobs:
       run: ls -la allure-results
 
     - name: Build test report
-      uses: genaton/allure-report-action@main
+      uses: genaton/allure-report-action@master
       if: always()
       with:
         gh_pages: gh-pages
