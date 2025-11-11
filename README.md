@@ -45,6 +45,12 @@ code metrics (sinaliza se os métodos estão muito complexos, com mais de 5 attr
 ### Atenção
 Testes de integração e bdd com cucumber devem ser feitos com a aplicação rodando e com o banco de dados no ar. 
 
+Nas aulas foi sugerido a implementação de análise de código pelo sonarQube e, alternativamente sonarCloud que é uma ferramenta que analise a qualiade do código... se há código duplicado, bibliotecas ou códigos vulneráveis, a cobertura dos testes no código. 
+Há uma versão para download que é gratuita mas a que foi usada na aula foi a versão gratuita disponível em nuvem.
+
+https://www.sonarsource.com/products/sonarqube/
+https://sonarcloud.io/login
+
 ## requisitos
 
 ### Mensagem 
