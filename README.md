@@ -48,6 +48,12 @@ Testes de integração e bdd com cucumber devem ser feitos com a aplicação rod
 Nas aulas foi sugerido a implementação de análise de código pelo sonarQube e, alternativamente sonarCloud que é uma ferramenta que analise a qualiade do código... se há código duplicado, bibliotecas ou códigos vulneráveis, a cobertura dos testes no código. 
 Há uma versão para download que é gratuita mas a que foi usada na aula foi a versão gratuita disponível em nuvem.
 
+A configuração no ci está comentada.
+
+para utilizar o sonar no workflow deve-se gerar um toke no sonar cloud e incluí-lo com secrets no github. 
+
+Atente para as configurações do arquivo sonar-projetc.properties como as variáveis sonar.projectKey e sonar.organization que devem coincidir com as fornecidas pela sonar cloud.  
+
 https://www.sonarsource.com/products/sonarqube/
 https://sonarcloud.io/login
 
