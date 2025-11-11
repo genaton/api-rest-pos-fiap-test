@@ -18,6 +18,8 @@ npm i -D nyc (para ter métricas mais precisas do que realmente foi coberto no c
 npm i -D istanbul-merge (para criar um relatório único da cobertura feita pelos testes)
 ## BDD
 npm i -D @cucumber/cucumber @babel/register
+## work flow
+npm i -D allure-jest allure-commandline
 
 comando: 
 docker compose up -d db
