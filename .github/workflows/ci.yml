@@ -55,6 +55,9 @@ jobs:
     #- name: Verificar Jest
      # run: npx jest --version
 
+    - name: Corrigir permissão do Jest
+      run: chmod +x node_modules/.bin/jest
+
     - name: teste - unitario
       run: npm test
     
