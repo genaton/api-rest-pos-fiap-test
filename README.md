@@ -35,6 +35,7 @@ npm run test:system (   "test:system": "jest tests/system")
 npm run coverage:combine (combina o relatório de todos os testes)
 npm run coverage:export (renderiza o relatório de todos os testes em um html)
 npm run test:bdd (altere dryRun para true em cucumber.cjs para copiar e colar os passos em mensagme.step.json.)
+npx allure serve (para ver o relatório de teste da aplicação)
 
 extensões:
 jest 
