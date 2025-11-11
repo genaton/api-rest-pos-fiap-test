@@ -8,7 +8,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
   #execução manual
   workflow_dispatch:
 
@@ -18,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-    
       db:
         image: postgres:16-alpine
         env:
@@ -28,7 +26,6 @@ jobs:
         ports:
           - 5432:5432
    
-
     strategy:
       matrix:
         node-version: [22.16]
@@ -36,11 +33,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        
     - name: preparar projeto
       run: npm install
 
